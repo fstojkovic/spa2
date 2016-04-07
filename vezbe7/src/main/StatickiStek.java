@@ -1,7 +1,9 @@
 package main;
 
+import labis.cvorovi.CvorDSListe;
 import labis.exception.LabisException;
 import labis.statickeStrukture.AStatickiStek;
+import labis.test.ListGenerator;
 
 public class StatickiStek extends AStatickiStek {
 
@@ -29,4 +31,24 @@ public class StatickiStek extends AStatickiStek {
 							//	V vraca return;
 	
 	// 
+	
+	public static void main(String[] args) {
+		
+		DSLista lista = new DSLista();
+		int[] elementi  = new int[]{2,8,11};
+		ListGenerator.napraviDSListuCommon(lista, elementi, false);
+		try {
+			lista.popuniListu();
+		} catch (LabisException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		CvorDSListe pom = lista.prvi;
+		while(pom!=null){
+			System.out.println(pom.podatak);
+			pom=pom.sledeci;
+		}
+	}
+	
 	}
